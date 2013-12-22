@@ -5,33 +5,39 @@ class Card():
 
 class Princess(Card):
     """The princess card."""
-    def __init__(self):
-        self.value = 8
+    value = 8
+
 
 class Countess(Card):
     """The countess card."""
-    pass
+    value = 7
+
 
 class King(Card):
     """The King card."""
-    pass
+    value = 6
+
 
 class Prince(Card):
     """The prince card."""
-    pass
+    value = 5
+
 
 class Handmaiden(Card):
     """The handmaiden card."""
-    pass
+    value = 4
+
 
 class Baron(Card):
     """The baron card."""
-    pass
+    value = 3
+
 
 class Priest(Card):
     """The priest card."""
-    pass
+    value = 2
+
 
 class Guard(Card):
     """The guard card."""
-    pass
+    value = 1
