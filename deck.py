@@ -1,4 +1,5 @@
 from random import shuffle
+import card
 
 
 class Deck():
@@ -36,10 +37,11 @@ class Deck():
         card_drawn = self.cards.pop()
         return card_drawn
 
-maindeck = Deck()
-print(maindeck)
-maindeck.shufflecards()
-print(maindeck)
-maindeck.set_aside(2)
-print(maindeck)
-print(maindeck.sideboard)
+    def print_deck(self):
+        """
+        Prints out the deck , with the top card at the top.
+        """
+        print("The deck:")
+        output = self.cards[::-1]
+        for i in output:
+            print(i)
