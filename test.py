@@ -1,4 +1,5 @@
-import deck, player
+import deck
+import player
 
 
 maindeck = deck.Deck()

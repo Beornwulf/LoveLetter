@@ -8,7 +8,28 @@ class Deck():
     """
 
     def __init__(self):
-        self.cards = ["princess", "countess", "king", "prince", "prince", "handmaid", "handmaid", "baron", "baron", "priest", "priest", "guard", "guard", "guard", "guard", "guard"]
+        princess = card.Princess
+        countess = card.Countess
+        king = card.King
+        prince1 = card.Prince
+        prince2 = card.Prince
+        handmaiden1 = card.Handmaiden
+        handmaiden2 = card.Handmaiden
+        baron1 = card.Baron
+        baron2 = card.Baron
+        priest1 = card.Priest
+        priest2 = card.Priest
+        guard1 = card.Guard
+        guard2 = card.Guard
+        guard3 = card.Guard
+        guard4 = card.Guard
+        guard5 = card.Guard
+        self.cards = [princess, countess, king, prince1, prince2,
+                      handmaiden1, handmaiden2, baron1, baron2, priest1,
+                      priest2, guard1, guard2, guard3, guard4, guard5]
+        #self.cards = ["princess", "countess", "king", "prince", "prince",
+                      #"handmaid", "handmaid", "baron", "baron", "priest",
+                      #"priest", "guard", "guard", "guard", "guard", "guard"]
         self.sideboard = []
 
     def __str__(self):
@@ -26,8 +47,8 @@ class Deck():
         """
         i = 0
         while i < quantity:
-            card = self.cards.pop()
-            self.sideboard.append(card)
+            aside = self.cards.pop()
+            self.sideboard.append(aside)
             i += 1
 
     def draw(self):
@@ -44,4 +65,4 @@ class Deck():
         print("The deck:")
         output = self.cards[::-1]
         for i in output:
-            print(i)
+            print(i.cardname)

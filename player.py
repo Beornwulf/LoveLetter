@@ -1,23 +1,32 @@
-import deck
-
-
 class Player():
     def __init__(self, name):
         self.score = 0  # the player's score
         self.newcard = None  # the card that was just drawn
-        self.oldcard = None  # the card that is left in the hand at the end of the turn
+        self.oldcard = None  # the card that is left in the hand after a turn
         self.played = []  # a stack of the cards played thus far, in order
         self.name = name  # name of the player
 
     def __str__(self):
-        return("Player: " + self.name)
+        return("\nPlayer: " + self.name)
 
     def print_hand(self):
-        print("Hand:\n 1: " + str(self.oldcard) + "\n 2: " + str(self.newcard))
+        if self.hand_size() is 0:
+            print("\nHand empty")
+        elif self.hand_size() is 1:
+            print("\nHand:")
+            if not self.newcard is None:
+                print(self.newcard.cardname)
+            elif not self.oldcard is None:
+                print(self.oldcard.cardname)
+        else:
+            print("\nHand:")
+            print(self.oldcard.cardname)
+            print(self.newcard.cardname)
 
     def print_played(self):
-        print("Played:")
-        print(self.played)
+        print("\nPlayed:")
+        for i in self.played:
+            print(i.cardname)
 
     def hand_size(self):
         size = 0
@@ -29,9 +38,10 @@ class Player():
 
     def get_card(self, deck):
         if not deck:
-            print("Error: Deck is empty.")
+            print("\nError: Deck is empty.")
         if not self.newcard is None:
-            print("Error: Slot newcard already full with " + str(self.newcard))
+            print("\nError: Slot newcard already full with " +
+                  self.newcard.cardname)
         else:
             self.newcard = deck.draw()
 
@@ -43,7 +53,7 @@ class Player():
 
     def discard(self):  # need to add a mechanism to pick a card for this.
         if self.oldcard is None:
-            print("Error: Slot oldcard is empty.")
+            print("\nError: Slot oldcard is empty.")
         else:
             self.played.append(self.oldcard)
             self.oldcard = None
