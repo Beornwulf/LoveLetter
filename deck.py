@@ -27,9 +27,6 @@ class Deck():
         self.cards = [princess, countess, king, prince1, prince2,
                       handmaiden1, handmaiden2, baron1, baron2, priest1,
                       priest2, guard1, guard2, guard3, guard4, guard5]
-        #self.cards = ["princess", "countess", "king", "prince", "prince",
-                      #"handmaid", "handmaid", "baron", "baron", "priest",
-                      #"priest", "guard", "guard", "guard", "guard", "guard"]
         self.sideboard = []
 
     def __str__(self):
@@ -62,7 +59,7 @@ class Deck():
         """
         Prints out the deck , with the top card at the top.
         """
-        print("The deck:")
+        print("\nThe deck:")
         output = self.cards[::-1]
         for i in output:
             print(i.cardname)

@@ -24,9 +24,9 @@ class Player():
             print(self.newcard.cardname)
 
     def print_played(self):
-        print("\nPlayed:")
-        for i in self.played:
-            print(i.cardname)
+        print("\nPlayer " + self.name + " has played:")
+        for i in self.played[::-1]:
+            print(i.cardname + ": " + str(i.value))
 
     def hand_size(self):
         size = 0
