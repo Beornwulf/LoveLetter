@@ -8,22 +8,22 @@ class Deck():
     """
 
     def __init__(self):
-        princess = card.Princess
-        countess = card.Countess
-        king = card.King
-        prince1 = card.Prince
-        prince2 = card.Prince
-        handmaiden1 = card.Handmaiden
-        handmaiden2 = card.Handmaiden
-        baron1 = card.Baron
-        baron2 = card.Baron
-        priest1 = card.Priest
-        priest2 = card.Priest
-        guard1 = card.Guard
-        guard2 = card.Guard
-        guard3 = card.Guard
-        guard4 = card.Guard
-        guard5 = card.Guard
+        princess = card.Princess()
+        countess = card.Countess()
+        king = card.King()
+        prince1 = card.Prince()
+        prince2 = card.Prince()
+        handmaiden1 = card.Handmaiden()
+        handmaiden2 = card.Handmaiden()
+        baron1 = card.Baron()
+        baron2 = card.Baron()
+        priest1 = card.Priest()
+        priest2 = card.Priest()
+        guard1 = card.Guard()
+        guard2 = card.Guard()
+        guard3 = card.Guard()
+        guard4 = card.Guard()
+        guard5 = card.Guard()
         self.cards = [princess, countess, king, prince1, prince2,
                       handmaiden1, handmaiden2, baron1, baron2, priest1,
                       priest2, guard1, guard2, guard3, guard4, guard5]
@@ -59,7 +59,24 @@ class Deck():
         """
         Prints out the deck , with the top card at the top.
         """
-        print("\nThe deck:")
+        print("\nx" + 37 * "-" + "x")
+        print("| The deck:" + 27 * " " + "|")
         output = self.cards[::-1]
+        if not output:
+            print("|     Empty" + 27 * " " + "|")
         for i in output:
-            print(i.cardname)
+            print("|", i.basic_info(), "|")
+        print("x" + 37 * "-" + "x")
+
+    def print_sideboard(self):
+        """
+        Prints out the deck , with the top card at the top.
+        """
+        print("\nx" + 37 * "-" + "x")
+        print("| Set aside:" + 26 * " " + "|")
+        output = self.sideboard[::-1]
+        if not output:
+            print("|     Empty" + 27 * " " + "|")
+        for i in output:
+            print("|", i.basic_info(), "|")
+        print("x" + 37 * "-" + "x")

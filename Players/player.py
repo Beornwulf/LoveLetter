@@ -9,24 +9,41 @@ class Player():
     def __str__(self):
         return("\nPlayer: " + self.name)
 
+    def print_player(self):
+        print("\nx" + 37 * "-" + "x")
+        nameString = "| Player: " + self.name
+        while len(nameString) < 38:
+            nameString += " "
+        nameString += "|"
+        print(nameString)
+        scoreString = "| Victory Tokens: " + str(self.score)
+        while len(scoreString) < 38:
+            scoreString += " "
+        scoreString += "|"
+        print(scoreString)
+        self.print_hand()
+        self.print_played()
+        print("x" + 37 * "-" + "x")
+        
     def print_hand(self):
+        print("| Hand:" + 31 * " " + "|")
         if self.hand_size() is 0:
-            print("\nHand empty")
+            print("|     Empty" + 27 * " " + "|")
         elif self.hand_size() is 1:
-            print("\nHand:")
             if not self.newcard is None:
-                print(self.newcard.cardname)
+                print("|", self.newcard.basic_info(), "|")
             elif not self.oldcard is None:
-                print(self.oldcard.cardname)
+                print("|", self.oldcard.basic_info(), "|")
         else:
-            print("\nHand:")
-            print(self.oldcard.cardname)
-            print(self.newcard.cardname)
+            print("|", self.oldcard.basic_info(), "|")
+            print("|", self.newcard.basic_info(), "|")
 
     def print_played(self):
-        print("\nPlayer " + self.name + " has played:")
+        print("| Played:" + 29 * " " + "|")
+        if not self.played:
+            print("|     None" + 28 * " " + "|")
         for i in self.played[::-1]:
-            print(i.cardname + ": " + str(i.value))
+            print("|", i.basic_info(), "|")
 
     def hand_size(self):
         size = 0
@@ -40,7 +57,7 @@ class Player():
         if not deck:
             print("\nError: Deck is empty.")
         if not self.newcard is None:
-            print("\nError: Slot newcard already full with " +
+            print("\nError: Slot newcard already full with " + 
                   self.newcard.cardname)
         else:
             self.newcard = deck.draw()

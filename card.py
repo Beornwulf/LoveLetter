@@ -2,6 +2,18 @@ class Card():
     """Defines aspects common to all cards."""
     value = None
     cardname = None
+    
+    def __repr__(self):
+        return(self.basic_info())
+    
+    
+    def basic_info(self):
+        """returns the card name and value, formatted for text display."""
+        output = "    " + self.cardname
+        while len(output) < 34:
+            output = output + " "
+        output = output + str(self.value)
+        return output
 
 
 class Princess(Card):
